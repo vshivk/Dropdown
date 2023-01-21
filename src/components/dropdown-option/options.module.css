@@ -21,7 +21,7 @@
     align-items: center;
     justify-content: space-between;
     border-bottom: 1px solid #F4F4F4;
-    padding: 10px 14px;
+    padding: 14px;
 }
 
 .dropdown-option-item:hover {
@@ -103,4 +103,3 @@
     background-position: center center;
     border-color: #0049D9;
 }
-

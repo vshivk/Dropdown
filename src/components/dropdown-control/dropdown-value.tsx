@@ -1,17 +1,16 @@
-import React, {ChangeEvent, Dispatch, FC, SetStateAction} from 'react';
+import React, {FC,  useContext} from 'react';
 import styles from "./dropdown-control.module.css";
 import {Selected} from "../../core/types/options";
 import {initialOptions} from "../../core/utils/options";
+import {DropdownContext} from "../../core/utils/dropdown-context";
 
 interface IDropdownValueProps {
     option: Selected,
-    setSelectedOptions: Dispatch<SetStateAction<Selected[]>>,
-    selectedOptions: Selected[],
 }
 
-const DropdownValue: FC<IDropdownValueProps> = ({option, setSelectedOptions, selectedOptions}) => {
+const DropdownValue: FC<IDropdownValueProps> = ({option}) => {
+    const {selectedOptions, setSelectedOptions} = useContext(DropdownContext);
     const {name, id} = option;
-
     const deleteFromSelected = (e: React.MouseEvent<HTMLButtonElement>) => {
         e.stopPropagation();
         selectedOptions.forEach(option => {

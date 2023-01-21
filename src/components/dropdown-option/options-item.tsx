@@ -1,33 +1,30 @@
-import React, {Dispatch, FC, SetStateAction} from 'react';
+import React, {Dispatch, FC, SetStateAction, useContext} from 'react';
 import styles from "./options.module.css";
 import {Option, Selected} from "../../core/types/options";
 import {initialOptions} from "../../core/utils/options";
+import {DropdownContext} from "../../core/utils/dropdown-context";
 
 interface IOptionsItemProps {
     option: Option,
-    setSelectedOptions: Dispatch<SetStateAction<Selected[]>>,
-    selectedOptions: Selected[],
-    setIsVisible: Dispatch<SetStateAction<boolean>>,
-    isVisible: boolean
 }
 
-const OptionsItem: FC<IOptionsItemProps> = ({option, setSelectedOptions, selectedOptions, setIsVisible, isVisible}) => {
+const OptionsItem: FC<IOptionsItemProps> = ({option}) => {
+    const {setSelectedOptions, setIsVisible, isVisible, selectedOptions} = useContext(DropdownContext);
     const {icon, name, id} = option;
     const isSelected = selectedOptions.find(option => option.id === id);
 
     const selectOption = () => {
         if (initialOptions.multi) {
-            setSelectedOptions([...selectedOptions, {name: name, id: id}]);
-            setIsVisible(!isVisible);
-            selectedOptions.forEach(option => {
-                if (option.id === id) {
-                    setSelectedOptions(selectedOptions.filter(option => option.id !== id));
-                }
-            })
+            const index = selectedOptions.findIndex(option => option.id === id);
+            if (index === -1) {
+                setSelectedOptions([...selectedOptions, {name: name, id: id}]);
+            } else {
+                setSelectedOptions(selectedOptions.filter(option => option.id !== id));
+            }
         } else {
             setSelectedOptions([{name: name, id: id}]);
-            setIsVisible(!isVisible);
         }
+        setIsVisible(!isVisible);
     }
 
     return (
@@ -36,19 +33,16 @@ const OptionsItem: FC<IOptionsItemProps> = ({option, setSelectedOptions, selecte
         >
             <div className={styles['dropdown-option-language']}>
                 {initialOptions.isIcon && <img src={icon} alt="russia"/>}
-                {initialOptions.multi
-                    &&
-                    <input className={styles['dropdown-option-checkbox']}
-                           type="checkbox"
-                           onChange={selectOption}
-                           checked={Boolean(isSelected)}
-                           id={name}
-                    />
-                }
-                <label className={styles['dropdown-option-span']} htmlFor={name}>{name}</label>
+                    {initialOptions.multi
+                        &&
+                        <input className={styles['dropdown-option-checkbox']}
+                               type="checkbox"
+                               onChange={selectOption}
+                               checked={Boolean(isSelected)}
+                        />
+                    }
+                    <label className={styles['dropdown-option-label']}>{name}</label>
             </div>
-
-
         </li>
     );
 };

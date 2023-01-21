@@ -1,11 +1,10 @@
-import React, {FC, useEffect, useRef, useState} from 'react';
+import React, {FC, useState} from 'react';
 import styles from "./dropdown-control.module.css";
 import DropdownOptions from "../dropdown-option/dropdown-options";
 import DropdownItem from "./dropdown-item";
 import {initialOptions} from "../../core/utils/options";
 import {Option} from "../../core/types/options";
-import {Simulate} from "react-dom/test-utils";
-import input = Simulate.input;
+import { DropdownContext } from '../../core/utils/dropdown-context';
 
 const DropdownControl: FC = () => {
     const [isVisible, setIsVisible] = useState<boolean>(false);
@@ -20,31 +19,30 @@ const DropdownControl: FC = () => {
     }
 
     return (
-        <div className={styles.dropdown}
-             onClick={() => setIsVisible(!isVisible)}
-             onBlur={e => clickOutDropdown(e)}
-             tabIndex={0}
-        >
-            <DropdownItem
-                selectedOptions={selectedOptions}
-                setSelectedOptions={setSelectedOptions}
-            />
-            <div>
-                <div
-                    className={`${styles['dropdown-indicator']} ${isVisible ? styles['dropdown-indicator--rotate'] : ''}`}></div>
+        <DropdownContext.Provider value={{
+            selectedOptions,
+            setSelectedOptions,
+            optionsList,
+            setOptionsList,
+            searchValue,
+            setSearchValue,
+            isVisible,
+            setIsVisible
+        }}>
+            <div className={styles.dropdown}
+                 onClick={() => setIsVisible(!isVisible)}
+                 onBlur={e => clickOutDropdown(e)}
+                 tabIndex={0}
+            >
+                <DropdownItem/>
+                <div>
+                    <div
+                        className={`${styles['dropdown-indicator']} ${isVisible ? styles['dropdown-indicator--rotate'] : ''}`}></div>
+                </div>
+                <DropdownOptions/>
             </div>
+        </DropdownContext.Provider>
 
-            <DropdownOptions
-                setOptionsList={setOptionsList}
-                optionsList={optionsList}
-                searchValue={searchValue}
-                setSearchValue={setSearchValue}
-                isVisible={isVisible}
-                setSelectedOptions={setSelectedOptions}
-                selectedOptions={selectedOptions}
-                setIsVisible={setIsVisible}
-            />
-        </div>
     );
 };
 
