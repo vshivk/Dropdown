@@ -1,0 +1,34 @@
+.dropdown-selected {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.dropdown-selected--default {
+    width: 100%;
+}
+
+.dropdown-selected-value {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 12px;
+    background: #F4F4F4;
+    border-radius: 8px;
+}
+
+.dropdown-selected--default .dropdown-selected-value {
+    background-color: transparent;
+    width: 100%;
+    padding: 7px 9px;
+}
+
+.dropdown-selected--default .dropdown-selected-value-text {
+    font-size: 16px;
+}
+
+.dropdown-selected-value-text {
+    font-size: 12px;
+    line-height: 12px;
+}

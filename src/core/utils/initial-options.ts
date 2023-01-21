@@ -43,6 +43,6 @@ export const initialOptions: OptionState = {
     options: options,
     selected: [],
     multi: true,
-    isIcon: true
+    icon: true
 }
 

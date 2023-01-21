@@ -1,10 +1,10 @@
 import React, {FC, useContext, useEffect} from 'react';
-import styles from "./options.module.css";
+import styles from "./style.module.css";
 import {Option} from "../../core/types/options";
-import {options} from "../../core/utils/options";
+import {options} from "../../core/utils/initial-options";
 import {DropdownContext} from "../../core/utils/dropdown-context";
 
-const OptionsSearch: FC = () => {
+const OptionSearch: FC = () => {
     const {optionsList, setOptionsList, searchValue, setSearchValue} = useContext(DropdownContext);
 
     const filteredOptions = (searchValue: string, options: Option[]) => {
@@ -18,8 +18,8 @@ const OptionsSearch: FC = () => {
     }, [searchValue]);
 
     return (
-        <div className={styles['dropdown-option-input']}>
-            <input className={styles['dropdown-option-search']}
+        <div className={styles['dropdown-options-input']}>
+            <input className={styles['dropdown-options-search']}
                    value={searchValue}
                    onChange={e => setSearchValue(e.target.value)}
                    type="search"
@@ -28,4 +28,4 @@ const OptionsSearch: FC = () => {
     );
 };
 
-export default OptionsSearch;
+export default OptionSearch;

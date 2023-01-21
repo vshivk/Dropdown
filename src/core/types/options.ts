@@ -13,5 +13,5 @@ export interface OptionState {
     options: Option[],
     selected: Selected[],
     multi: boolean,
-    isIcon: boolean
+    icon: boolean
 }

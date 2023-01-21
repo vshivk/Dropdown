@@ -1,0 +1,12 @@
+.dropdown-trigger {
+    background-image: url("../../assets/svg/arrow.svg");
+    transform: rotate(180deg);
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 16px;
+    height: 16px;
+}
+
+.dropdown-trigger--rotate {
+    transform: rotate(360deg);
+}

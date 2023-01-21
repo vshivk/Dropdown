@@ -1,0 +1,11 @@
+.dropdown-selected-value-remove {
+    display: flex;
+    align-items: center;
+    background-image: url("../../assets/svg/cross.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 12px;
+    height: 12px;
+    background-color: transparent;
+    border: none;
+}

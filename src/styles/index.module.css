@@ -11,8 +11,9 @@ body {
 p {
     margin: 0;
 }
+
 button,
-label{
+label {
     cursor: pointer;
 }
 
