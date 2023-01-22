@@ -1,16 +1,20 @@
-import React, {FC, useContext, useEffect} from "react";
+import React, {Dispatch, FC, useEffect} from "react";
 import styles from "./style.module.css";
 import {Option} from "../../core/types/options";
 import {options} from "../../core/utils/options";
-import {DropdownContext} from "../../core/utils/dropdown-context";
 
-const OptionSearch: FC = () => {
-    const {optionsList, setOptionsList, searchValue, setSearchValue} = useContext(DropdownContext);
+interface IOptionsProps {
+    optionsList: Option[],
+    setOptionsList: Dispatch<React.SetStateAction<Option[]>>,
+    searchValue: string,
+    setSearchValue: Dispatch<React.SetStateAction<string>>,
+}
 
+const OptionSearch: FC<IOptionsProps> = ({optionsList, setOptionsList, searchValue, setSearchValue}) => {
     const filteredOptions = (searchValue: string, options: Option[]) => {
         if (!searchValue) return options;
-        return optionsList.filter(({name}) =>
-            name.toLowerCase().includes(searchValue.toLowerCase())
+        return optionsList.filter(({title}) =>
+            title.toLowerCase().includes(searchValue.toLowerCase())
         );
     }
     useEffect(() => {

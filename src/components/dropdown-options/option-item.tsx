@@ -1,21 +1,17 @@
-import React, {FC, useContext} from "react";
+import React, {FC} from "react";
 import styles from "./style.module.css";
-import {DropdownContext} from "../../core/utils/dropdown-context";
 import DropdownCheckbox from "../dropdown-checkbox/dropdown-checkbox";
 import {IOptionsItemProps} from "../../core/types/props";
 import {toggleOption} from "../../core/utils/toggle-option";
-import {isIcon, isMulti} from "../../core/consts/consts";
 
-const OptionItem: FC<IOptionsItemProps> = ({option: {icon, name, id}}) => {
-    const {setSelectedOptions, setIsVisible, isVisible, selectedOptions,setSearchValue} = useContext(DropdownContext);
+const OptionItem: FC<IOptionsItemProps> = ({option: {icon, title, id},isIcon,isMulti,setSelectedOptions,selectedOptions,setSearchValue,isVisible,setIsVisible}) => {
     const isSelected = Boolean(selectedOptions.find(option => option.id === id));
-    const optionsItemClassName = `${styles['dropdown-options-item']} ${!isMulti && isSelected ? styles['dropdown-select-options-item--active'] : ''}`;
-
+    const optionsItemClassName = `${styles['dropdown-options-item']} ${!isMulti && isSelected ? styles['dropdown-options-item--active'] : ''}`;
     const selectOption = () => {
         if (isMulti) {
-            setSelectedOptions(toggleOption(selectedOptions, {name, id}));
+            setSelectedOptions(toggleOption(selectedOptions, {title, id}));
         } else {
-            setSelectedOptions([{name: name, id: id}]);
+            setSelectedOptions([{title: title, id: id}]);
         }
         setIsVisible(!isVisible);
         setSearchValue('');
@@ -25,11 +21,11 @@ const OptionItem: FC<IOptionsItemProps> = ({option: {icon, name, id}}) => {
         <li className={optionsItemClassName} onClick={selectOption}>
             <div className={styles['dropdown-options-language']}>
                 {isIcon && <img src={icon} alt="russia"/>}
-                {isMulti
-                    &&
-                    <DropdownCheckbox isSelected={isSelected} selectOption={selectOption}/>
-                }
-                <label>{name}</label>
+                <DropdownCheckbox
+                    isSelected={isSelected}
+                    selectOption={selectOption}
+                />
+                <label>{title}</label>
             </div>
         </li>
     );

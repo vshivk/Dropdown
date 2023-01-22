@@ -1,9 +1,10 @@
-import React, {FC, useContext} from "react";
+import React, {FC} from "react";
 import styles from "./style.module.css"
-import {DropdownContext} from "../../core/utils/dropdown-context";
 
-const DropdownTrigger: FC = () => {
-    const {isVisible} = useContext(DropdownContext);
+interface IDropdownTriggerProps {
+    isVisible:boolean,
+}
+const DropdownTrigger: FC<IDropdownTriggerProps> = ({isVisible}) => {
     const triggerClassName = `${styles['dropdown-trigger']} ${isVisible ? styles['dropdown-trigger--rotate'] : ''}`;
 
     return (

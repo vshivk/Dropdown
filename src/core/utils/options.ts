@@ -9,32 +9,32 @@ import {Option} from "../types/options";
 export const options: Option[] = [
     {
         icon: russia,
-        name: 'Русский',
+        title: 'Русский',
         id: 'dfac4374-57'
     },
     {
         icon: england,
-        name: 'Английский',
+        title: 'Английский',
         id: '89743cd7-6b9'
     },
     {
         icon: italy,
-        name: 'Испанский',
+        title: 'Испанский',
         id: '28b65d69-424'
     },
     {
         icon: germany,
-        name: 'Немецкий',
+        title: 'Немецкий',
         id: 'c890720f-e'
     },
     {
         icon: poland,
-        name: 'Итальянский',
+        title: 'Итальянский',
         id: 'a12083d5-a1'
     },
     {
         icon: spain,
-        name: 'Польский',
+        title: 'Польский',
         id: '248dcf3a-1ed'
     }
 ]

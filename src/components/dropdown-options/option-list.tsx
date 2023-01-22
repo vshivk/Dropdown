@@ -1,16 +1,22 @@
-import React, {FC, useContext} from "react";
+import React, {FC} from "react";
 import styles from "./style.module.css";
 import OptionItem from "./option-item";
-import {DropdownContext} from "../../core/utils/dropdown-context";
+import {IOptionListProps} from "../../core/types/props";
 
-const OptionList: FC = () => {
-    const {optionsList} = useContext(DropdownContext);
+const OptionList: FC<IOptionListProps> = ({optionsList,isIcon,isMulti,selectedOptions,setSelectedOptions,setSearchValue,isVisible,setIsVisible}) => {
     return (
         <ul className={styles['dropdown-options-list']}>
             {optionsList.map(option =>
                 <OptionItem
                     key={option.id}
                     option={option}
+                    isIcon={isIcon}
+                    isMulti={isMulti}
+                    selectedOptions={selectedOptions}
+                    setSelectedOptions={setSelectedOptions}
+                    setSearchValue={setSearchValue}
+                    isVisible={isVisible}
+                    setIsVisible={setIsVisible}
                 />
             )}
         </ul>

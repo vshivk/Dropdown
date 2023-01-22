@@ -1,27 +1,32 @@
-import React, {FC, useContext} from "react";
+import React, {FC} from "react";
 import styles from "./style.module.css";
 import DropdownSelectedValue from "./dropdown-selected-value";
-import {DropdownContext} from "../../core/utils/dropdown-context";
 import DropdownTrigger from "../dropdown-trigger/dropdown-trigger";
-import {isMulti} from "../../core/consts/consts";
+import {IDropdownSelect} from "../../core/types/props";
 
-//This component is responsible for displaying the selected options.
-const DropdownSelect: FC = () => {
-    const {selectedOptions} = useContext(DropdownContext);
+//This component is responsible for displaying the selected options
+const DropdownSelect: FC<IDropdownSelect> = ({isMulti, selectedOptions, setSelectedOptions, isVisible}) => {
     const selectClassName = `${styles['dropdown-selected']} ${!isMulti ? styles['dropdown-selected--default'] : ''}`;
 
     return (
         <>
             <div
                 className={selectClassName}>
-                {selectedOptions.map(option =>
-                    <DropdownSelectedValue
-                        key={option.id}
-                        option={option}
-                    />
-                )}
+                {selectedOptions.length > 0
+                    &&
+                    selectedOptions.map(option =>
+                        <DropdownSelectedValue
+                            key={option.id}
+                            option={option}
+                            isMulti={isMulti}
+                            selectedOptions={selectedOptions}
+                            setSelectedOptions={setSelectedOptions}
+                        />
+                    )
+                }
+
             </div>
-            <DropdownTrigger/>
+            <DropdownTrigger isVisible={isVisible}/>
         </>
     );
 };
