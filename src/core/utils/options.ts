@@ -36,5 +36,5 @@ export const options: Option[] = [
         icon: spain,
         title: 'Польский',
         id: '248dcf3a-1ed'
-    }
+    },
 ]

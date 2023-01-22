@@ -16,7 +16,8 @@ const DropdownContent: FC<IDropdownContentProps> = ({optionsList,setOptionsList,
         <div className={styles.dropdown}
              onClick={() => setIsVisible(!isVisible)}
              onBlur={e => onClickOutside(e)}
-             tabIndex={0}>
+             tabIndex={0}
+        >
             <DropdownSelect
                 isMulti={isMulti}
                 selectedOptions={selectedOptions}
