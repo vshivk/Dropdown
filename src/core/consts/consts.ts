@@ -1,4 +1,4 @@
-import {initialOptions} from "../utils/initial-options";
+import {initialOptions} from "../config/options";
 
-export  const isMulti = initialOptions.multi;
-export const isIcon =initialOptions.icon;
+export const isMulti = initialOptions.multi;
+export const isIcon = initialOptions.icon;

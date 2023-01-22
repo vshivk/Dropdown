@@ -1,4 +1,4 @@
-import React, {FC, useContext} from 'react';
+import React, {FC, useContext} from "react";
 import styles from "./style.module.css";
 import OptionItem from "./option-item";
 import {DropdownContext} from "../../core/utils/dropdown-context";

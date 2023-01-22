@@ -10,6 +10,7 @@ export interface Selected {
 }
 
 export interface OptionState {
+    title: string,
     options: Option[],
     selected: Selected[],
     multi: boolean,

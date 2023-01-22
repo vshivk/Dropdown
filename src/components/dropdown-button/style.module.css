@@ -4,8 +4,8 @@
     background-image: url("../../assets/svg/cross.svg");
     background-repeat: no-repeat;
     background-position: center;
-    width: 12px;
-    height: 12px;
+    width: var(--button-size);
+    height: var(--button-size);
     background-color: transparent;
     border: none;
 }

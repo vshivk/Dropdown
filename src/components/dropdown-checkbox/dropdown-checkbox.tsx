@@ -1,4 +1,4 @@
-import React, { FC} from 'react';
+import React, {FC} from "react";
 import styles from "./style.module.css";
 import {IDropdownCheckboxProps} from "../../core/types/props";
 

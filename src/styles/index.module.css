@@ -1,11 +1,11 @@
-@import './fonts.module.css';
+@import "./fonts.module.css";
 
 body {
-    font-family: "Inter", "Arial", sans-serif;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 20px;
-    color: #333333;
+    font-family: var(--text-font-family);
+    font-weight: var(--text-font-weight);
+    font-size: var(--text-font-size-normal);
+    line-height: var(--text-line-height);
+    color: var(--text-color-default);
 }
 
 p {
@@ -20,7 +20,7 @@ label {
 .container {
     margin-left: auto;
     margin-right: auto;
-    max-width: 400px;
+    max-width: var(--container-width);
 }
 
 .wrapper {
@@ -30,8 +30,5 @@ label {
 }
 
 .inner {
-    display: grid;
-    flex-direction: column;
-    min-width: 100%;
-    min-height: 25px;
+    width: 100%;
 }

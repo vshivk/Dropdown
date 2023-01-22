@@ -25,10 +25,10 @@
 }
 
 .dropdown-selected--default .dropdown-selected-value-text {
-    font-size: 16px;
+    font-size: var(--text-font-size-normal);
 }
 
 .dropdown-selected-value-text {
-    font-size: 12px;
+    font-size: var(--text-font-size-small);
     line-height: 12px;
 }

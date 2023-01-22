@@ -1,7 +1,7 @@
-import React, {FC, useContext, useEffect} from 'react';
+import React, {FC, useContext, useEffect} from "react";
 import styles from "./style.module.css";
 import {Option} from "../../core/types/options";
-import {options} from "../../core/utils/initial-options";
+import {options} from "../../core/utils/options";
 import {DropdownContext} from "../../core/utils/dropdown-context";
 
 const OptionSearch: FC = () => {

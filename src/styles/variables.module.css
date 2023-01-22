@@ -1,0 +1,20 @@
+:root {
+    --text-font-family: "Inter", "Arial", sans-serif;
+    --text-font-weight: 400;
+    --text-font-size-normal: 16px;
+    --text-font-size-small: 12px;
+    --text-line-height: 20px;
+    --text-color-default: #333333;
+    --dropdown-border: 1px solid #C1C1C1;
+    --dropdown-background-color: #fff;
+    --dropdown-border-radius: 10px;
+    --dropdown-height: 26px;
+    --dropdown-padding: 7px;
+    --container-width: 400px;
+    --checkbox-size: 20px;
+    --checkbox-border: 2px solid #C1C1C1;
+    --checkbox-border-active: #0049D9;
+    --checkbox-background-color-active: #005FFD;
+    --checkbox-border-radius: 6px;
+    --button-size: 12px;
+}

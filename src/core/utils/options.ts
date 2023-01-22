@@ -4,7 +4,7 @@ import italy from "../../assets/svg/italy.svg";
 import germany from "../../assets/svg/germany.svg";
 import poland from "../../assets/svg/poland.svg";
 import spain from "../../assets/svg/spain.svg";
-import {Option, OptionState} from "../types/options";
+import {Option} from "../types/options";
 
 export const options: Option[] = [
     {
@@ -38,11 +38,3 @@ export const options: Option[] = [
         id: '248dcf3a-1ed'
     }
 ]
-
-export const initialOptions: OptionState = {
-    options: options,
-    selected: [],
-    multi: true,
-    icon: true
-}
-

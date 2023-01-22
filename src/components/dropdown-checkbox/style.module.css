@@ -1,6 +1,6 @@
 .dropdown-options-checkbox {
-    width: 20px;
-    height: 20px;
+    width: var(--checkbox-size);
+    height: var(--checkbox-size);
     position: absolute;
     z-index: 1;
     opacity: 0;
@@ -18,17 +18,17 @@
     content: '';
     position: absolute;
     display: inline-block;
-    width: 20px;
-    height: 20px;
-    border: 2px solid #C1C1C1;
-    border-radius: 6px;
+    width: var(--checkbox-size);
+    height: var(--checkbox-size);
+    border: var(--checkbox-border);
+    border-radius: var(--checkbox-border-radius);
     right: 16px;
 }
 
 .dropdown-options-checkbox:checked + label::before {
     background-image: url("../../assets/svg/check-mark.svg");
-    background-color: #005FFD;
+    background-color: var(--checkbox-background-color-active);
     background-repeat: no-repeat;
     background-position: center center;
-    border-color: #0049D9;
+    border-color: var(--checkbox-border-active);
 }

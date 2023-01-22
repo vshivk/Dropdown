@@ -1,28 +1,14 @@
-import React, {FC, useState} from 'react';
-import {initialOptions, options} from "../core/utils/initial-options";
-import {Option} from "../core/types/options";
-import {DropdownContext} from '../core/utils/dropdown-context';
+import React, {FC} from 'react';
 import DropdownContent from "./dropdown-content";
+import {initialOptions} from "../core/config/options";
 
 const Dropdown: FC = () => {
-    const [isVisible, setIsVisible] = useState<boolean>(false);
-    const [optionsList, setOptionsList] = useState<Option[]>(initialOptions.options);
-    const [searchValue, setSearchValue] = useState('');
-    const [selectedOptions, setSelectedOptions] = useState(initialOptions.selected);
-
     return (
-        <DropdownContext.Provider value={{
-            selectedOptions,
-            setSelectedOptions,
-            optionsList,
-            setOptionsList,
-            searchValue,
-            setSearchValue,
-            isVisible,
-            setIsVisible
-        }}>
+        <>
+            <p>{initialOptions.title}</p>
             <DropdownContent/>
-        </DropdownContext.Provider>
+        </>
+
     );
 };
 
