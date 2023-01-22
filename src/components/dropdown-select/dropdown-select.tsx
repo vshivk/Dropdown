@@ -24,7 +24,6 @@ const DropdownSelect: FC<IDropdownSelect> = ({isMulti, selectedOptions, setSelec
                         />
                     )
                 }
-
             </div>
             <DropdownTrigger isVisible={isVisible}/>
         </>

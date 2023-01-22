@@ -20,7 +20,7 @@ const OptionItem: FC<IOptionsItemProps> = ({option: {icon, title, id},isIcon,isM
     return (
         <li className={optionsItemClassName} onClick={selectOption}>
             <div className={styles['dropdown-options-language']}>
-                {isIcon && <img src={icon} alt="russia"/>}
+                {isIcon && <img src={icon} alt={title}/>}
                 <DropdownCheckbox
                     isSelected={isSelected}
                     selectOption={selectOption}
