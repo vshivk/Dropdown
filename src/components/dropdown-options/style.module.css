@@ -58,7 +58,7 @@
     margin: 0;
 }
 
-.dropdown-options-language {
+.dropdown-options-name {
     display: flex;
     gap: 10px;
     align-items: center;
@@ -71,4 +71,12 @@
 .dropdown-options-inner {
     max-height: 300px;
     overflow: hidden auto;
+}
+.dropdown-options-label{
+    word-break: break-word;
+    padding-right: 30px;
+}
+.dropdown-options-img{
+    width: 22px;
+    height: 16px;
 }

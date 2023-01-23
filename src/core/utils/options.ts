@@ -18,7 +18,7 @@ export const options: Option[] = [
         id: '89743cd7-6b9'
     },
     {
-        icon: italy,
+        icon: spain,
         title: 'Испанский',
         id: '28b65d69-424'
     },
@@ -28,12 +28,12 @@ export const options: Option[] = [
         id: 'c890720f-e'
     },
     {
-        icon: poland,
+        icon: italy,
         title: 'Итальянский',
         id: 'a12083d5-a1'
     },
     {
-        icon: spain,
+        icon: poland,
         title: 'Польский',
         id: '248dcf3a-1ed'
     },
